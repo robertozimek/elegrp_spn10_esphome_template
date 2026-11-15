@@ -14,6 +14,20 @@ Notable functionnality of this pacakage available:
 - Ability to disable device's paddle switches from directly controlling the relay. Useful to turn this switch into a scene controller.
 - Ability to enable local relay control fallback (switch paddles controls relay) on connectivity issues with Home Assistant
 - Ability to configure relay state on boot without reprogramming
+- A single "Paddle" event entity (turned_on, turned_off, long_press, long_press_down, double_tap_up, double_tap_down), matching the DTR10/DTR30 package
+- Countdown timer: set "Countdown" in seconds and the relay is set to the "Countdown Action" state when it reaches 0
+- "Traveler Input" on P8, the AC sense input the stock firmware uses for a 3-way/remote switch. Toggles the relay when it changes. Disabled by default.
+
+## Pinout
+From disassembly of stock firmware 2.3.4 (`ele_1switch`):
+
+| CB2S pin | Function |
+| --- | --- |
+| P6 | Paddle up (input, pull-up, active low) |
+| P23 | Paddle down (input, pull-up, active low) |
+| P7 | Relay (active high) |
+| P24 | White status LED (active low) |
+| P8 | AC sense / traveler input (input, pull-up, low or pulsing at mains frequency when powered) |
 
 
 
